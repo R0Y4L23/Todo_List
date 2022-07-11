@@ -1,13 +1,21 @@
 import React from 'react'
-import { DatePicker } from 'antd';
+import { DatePicker, message } from 'antd';
 
-const Date = ({ value, setValue }) => {
+const Dates = ({ value, setValue, current }) => {
+    const [d, setD] = React.useState(null);
     return (
         <>
-            <DatePicker onChange={(date, dateString) => { setValue({ date, dateString }) }} />
+            <DatePicker value={d} onChange={(date, dateString) => {
+                if (dateString < current) {
+                    message.error("Date cannot be before today");
+                } else {
+                    setValue({ date, dateString })
+                    setD(date);
+                }
+            }} />
         </>
     )
 
 }
 
-export default Date
+export default Dates

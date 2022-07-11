@@ -79,7 +79,7 @@ const ModifyTodo = () => {
                     <Title>{createTodo[page - 1].name}</Title>
                     {page === 1 && <Title2 value={title} setValue={setTitle} />}
                     {page === 2 && <Description value={description} setValue={setDescription} />}
-                    {page === 3 && <Date2 value={date} setValue={setDate} />}
+                    {page === 3 && <Date2 current={createdOn} value={date} setValue={setDate} />}
                     {page === 4 && <Tags2 value={tags} setValue={setTags} />}
                     {page === 5 && <Status value={status} setValue={setStatus} />}
                     <div className={css.buttons}>
